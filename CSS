@@ -1,0 +1,148 @@
+* {
+  padding: 0;
+  margin: 0;
+  
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+
+.memory-game {
+  height: 640px;
+  width: 640px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  perspective: 500px; /* perspectiva do usuario no eixo z, quanto maior, maior o efeito da perspectiva */
+}
+
+.card {
+  height: calc( 33.333% - 10px);
+  width: calc(25% - 10px);
+  margin: 5px;
+  position: relative;
+  box-shadow: 1px 1px 1px rgb(30, 41, 46);
+  cursor: pointer;
+  transform: scale(1);
+  transform-style: preserve-3d; /* adiciona perspectiva 3d, para que o elemento nao fique achatada no plano */
+  transition: transform .9s; /* adiciona efeito de movimento ao flip do card */
+}
+
+.card:active{
+  transform: scale(0.97);
+  transition: transform .2s;
+}
+
+.card-front,
+.card-back {
+width: 100%;
+height: 100%;
+padding: 20px;
+position: absolute;
+border-radius: 5px;
+background: rgb(92, 187, 182);
+backface-visibility: hidden; /* todo elemento tem uma frente e um verso (ao contrario, como um espelho.) essa propriedade retira o verso */
+}
+
+.card-front {
+  transform: rotateY(180deg); /* antes, o verso aparecia transparente, pois ambas as imagens tem position absolute, ao girar no eixo Y, elas ficaram com os versos virados */
+}
+
+
+
+/* flip card animation */
+
+.card.flip {
+  transform: rotateY(180deg);
+}
+.conteiner{ background-color: rgb(59, 161, 230);
+
+}
+.container {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:column;
+}
+body {
+  width: 90%;
+  height: 90%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Black And White Picture', sans-serif;
+  font-size: 20px;
+  color: #f4511e;
+  background: #d6dada;
+  display: flex;
+  flex-direction: row;
+  
+}
+
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgba(34, 25, 25, 0.973);
+  font-family: openSans;
+}
+
+
+
+.button {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  cursor: pointer;
+  margin: 5px;
+  position: absolute;
+        left: -300;
+        top: 60%;
+        transform: translateY(-50%);
+
+}
+  .button span {
+    position: relative;
+    transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+} 
+
+
+
+    
+  
